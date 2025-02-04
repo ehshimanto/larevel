@@ -9,7 +9,7 @@
                                         <i class="fab fa-gg-circle"></i>View User Information
                                     </div>  
                                     <div class="col-md-4 card_button_part">
-                                        <a href="{{url('dashboard/usar')}}" class="btn btn-sm btn-dark"><i class="fas fa-th"></i>All User</a>
+                                        <a href="{{url('dashboard/Income/caregory')}}" class="btn btn-sm btn-dark"><i class="fas fa-th"></i>All User</a>
                                     </div>  
                                 </div>
                               </div>
@@ -19,36 +19,24 @@
                                     <div class="col-md-8">
                                         <table class="table table-bordered table-striped table-hover custom_view_table">
                                           <tr>
-                                            <td>Name</td>  
+                                            <td>Income Category</td>  
                                             <td>:</td>  
-                                            <td>Rasel Islam</td>  
+                                            <td>{{$data->incate_name}}</td>  
                                           </tr>
                                           <tr>
-                                            <td>Phone</td>  
+                                            <td>Remarks</td>  
                                             <td>:</td>  
-                                            <td>01757220125</td>  
+                                            <td>{{$data->incate_remark}}</td>  
                                           </tr>
                                           <tr>
-                                            <td>Email</td>  
+                                            <td>Creator</td>  
                                             <td>:</td>  
-                                            <td>uylab.rasel@gmail.com</td>  
+                                            <td>{{$data->creatorInfo->name}}</td>  
                                           </tr>
                                           <tr>
-                                            <td>Username</td>  
+                                            <td>Created Time</td>  
                                             <td>:</td>  
-                                            <td>raseldevs</td>  
-                                          </tr>
-                                          <tr>
-                                            <td>Role</td>  
-                                            <td>:</td>  
-                                            <td>---</td>  
-                                          </tr>
-                                          <tr>
-                                            <td>Photo</td>  
-                                            <td>:</td>  
-                                            <td>
-                                                <img class="img200" src="{{asset('contents/admin')}}/images/avatar.jpg" alt=""/>  
-                                            </td>  
+                                            <td>{{$data->created_at}}</td>  
                                           </tr>
                                         </table>
                                     </div>

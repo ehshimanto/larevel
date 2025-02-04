@@ -8,6 +8,7 @@ use App\Models\IncomeCategory;
 use carbon\carbon;
 use Session;
 use Auth;
+use DB;
 
 class Incomecaregorycontroller extends Controller
 {
@@ -15,7 +16,7 @@ class Incomecaregorycontroller extends Controller
         $this->middleware('auth');
     }
     public function index (){
-        $allData= IncomeCategory::where('incate_status',1)->orderBy('incate_id','DESC')->get();
+        $allData= DB::table('income_categories')->where('incate_status',1)->orderBy('incate_id','DESC')->get();
         return view('admin.income.category.all',compact('allData'));
                }
         
@@ -25,8 +26,9 @@ class Incomecaregorycontroller extends Controller
                public function edit(){
                  return view('admin.income.category.edit');
                 }
-                public function view (){
-                     return view('admin.income.category.view');
+                public function view ($slug){
+                    $data=IncomeCategory::where('incate_status',1)->where('incate_slug',$slug)->firstorFail();
+                     return view('admin.income.category.view',compact('data'));
                     }
                     public function submit (Request $request){
                         $this->validate($request,[

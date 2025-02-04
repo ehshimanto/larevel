@@ -54,7 +54,7 @@ Route::post('/dashboard/Income/delete', [IncomeController::class, 'delete']);
 Route::get('/dashboard/Income/caregory', [Incomecaregorycontroller::class, 'index']);
 Route::get('/dashboard/Income/caregory/add', [Incomecaregorycontroller::class, 'add']);
 Route::get('/dashboard/Income/caregory/edit', [Incomecaregorycontroller::class, 'edit']);
-Route::get('/dashboard/Income/caregory/view', [Incomecaregorycontroller::class, 'view']);
+Route::get('/dashboard/Income/caregory/view/{slug}', [Incomecaregorycontroller::class, 'view']);
 Route::post('/dashboard/Income/caregory/submit', [Incomecaregorycontroller::class, 'submit']);
 Route::post('/dashboard/Income/caregory/insert', [Incomecaregorycontroller::class, 'insert']);
 Route::post('/dashboard/Income/caregory/update', [Incomecaregorycontroller::class, 'update']);
