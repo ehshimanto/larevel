@@ -28,16 +28,33 @@
                                             <td>:</td>  
                                             <td>{{$data->incate_remark}}</td>  
                                           </tr>
+                                          @if($data->incate_editor!='')
+                                          <tr>
+                                            <td>Editor</td>  
+                                            <td>:</td>  
+                                            <td>{{$data->creatorInfo->name}}</td>  
+                                          </tr>
+                                          @endif
                                           <tr>
                                             <td>Creator</td>  
                                             <td>:</td>  
                                             <td>{{$data->creatorInfo->name}}</td>  
                                           </tr>
+
                                           <tr>
                                             <td>Created Time</td>  
                                             <td>:</td>  
-                                            <td>{{$data->created_at}}</td>  
+                                            <td>{{$data->created_at->format('d-m-Y || h:i:s A')}}</td>  
+                                            <!-- <td>{{$data->created_at->diffForHumans()}}</td>   -->
                                           </tr>
+                                          @if($data->incate_editor!='')
+                                          <tr>
+                                            <td>Updated Time</td>  
+                                            <td>:</td>  
+                                            <!-- <td>{{$data->created_at->format('d-m-Y || h:i:s A')}}</td>   -->
+                                            <td>{{$data->created_at->diffForHumans()}}</td>  
+                                          </tr>
+                                          @endif
                                         </table>
                                     </div>
                                     <div class="col-md-2"></div>

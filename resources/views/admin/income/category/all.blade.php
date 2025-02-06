@@ -19,6 +19,7 @@
                                     <tr>
                                       <th>Name</th>
                                       <th>Remark</th>
+                                      <th>Creator</th>
                                       
                                       <th>Manage</th>
                                     </tr>
@@ -28,6 +29,10 @@
                                     <tr>
                                       <td>{{$data->incate_name}}</td>
                                       <td>{{$data->incate_remark}}</td>
+                                      <td>{{ $data->creator_name }}</td>
+
+
+
                                       
                                       
                                       <td>
@@ -35,7 +40,7 @@
                                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                                             <ul class="dropdown-menu">
                                               <li><a class="dropdown-item" href="{{url('dashboard/Income/caregory/view/'.$data->incate_slug)}}">View</a></li>
-                                              <li><a class="dropdown-item" href="edit-user.html">Edit</a></li>
+                                              <li><a class="dropdown-item" href="{{url('dashboard/Income/caregory/edit/'.$data->incate_slug)}}">Edit</a></li>
                                               <li><a class="dropdown-item" href="#">Delete</a></li>
                                             </ul>
                                           </div>

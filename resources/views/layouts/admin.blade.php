@@ -45,8 +45,10 @@
                         <ul>
                             <li><a href="{{url('dashboard')}}"><i class="fas fa-home"></i> Dashboard</a></li>
                             <li><a href="{{url('dashboard/usar')}}"><i class="fas fa-user-circle"></i> Users</a></li>
-                            <li><a href="#"><i class="fas fa-images"></i> Banner</a></li>
-                            <li><a href="#"><i class="fas fa-comments"></i> Contact Message</a></li>
+                            <li><a href="{{url('dashboard/income')}}"><i class="fas fa-wallet"></i> Income</a></li>
+                            <li><a href="{{url('dashboard/expense')}}"><i class="fas fa-coins"></i> Expense</a></li>
+                            <li><a href="#"><i class="fas fa-file"></i> Reports</a></li>
+                            <li><a href="#"><i class="fas fa-trash"></i> Recyel Bin</a></li>
                             <li><a href="#"><i class="fas fa-globe"></i> Live Site</a></li>
                             <li><a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
                         </ul>
