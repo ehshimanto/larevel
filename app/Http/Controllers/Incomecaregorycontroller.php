@@ -65,7 +65,7 @@ class Incomecaregorycontroller extends Controller
                         ]);
                         if($insert){
                             Session::flash('success','Succesfully Add IncomeCayegory information');
-                              return redirect('dashboard/Income/caregory/add');
+                              return redirect('dashboard/Income/caregory');
                         }else{
                             Session::flash('Error','Opps! Operation failed');
                             return redirect('dashboard/Income/caregory/add');
@@ -91,7 +91,7 @@ class Incomecaregorycontroller extends Controller
         
                                 ]);
                                 if($update){
-                                    Session::flash('success','Succesfully Add IncomeCayegory information');
+                                    Session::flash('success','Succesfully Update IncomeCayegory information');
                                       return redirect('dashboard/Income/caregory/view/'.$slug);
                                 }else{
                                     Session::flash('Error','Opps! Operation failed');
@@ -100,10 +100,34 @@ class Incomecaregorycontroller extends Controller
         
                             }
                             public function softdelete (){
-                                // return view('admin.dashboard.home');
+                                $id=$_POST['modal_id'];
+                                $soft=IncomeCategory::where('incate_status',1)->where('incate_id',$id)->update([
+                                    'incate_status'=>0,
+                                    'created_at'=>carbon::now()->toDateTimeString(),
+
+                                ]);
+                                if($soft){
+                                    Session::flash('success','Succesfully Delet IncomeCayegory information');
+                                      return redirect('dashboard/Income/caregory/');
+                                }else{
+                                    Session::flash('Error','Opps! Operation failed');
+                                    return redirect('dashboard/Income/caregory/');
+                                }
                                 }
                                 public function restore (){
-                                    // return view('admin.dashboard.home');
+                                    $id=$_POST['modal_id'];
+                                $soft=IncomeCategory::where('incate_status',0)->where('incate_id',$id)->update([
+                                    'incate_status'=>1,
+                                    'created_at'=>carbon::now()->toDateTimeString(),
+
+                                ]);
+                                if($soft){
+                                    Session::flash('success','Succesfully Restore IncomeCayegory information');
+                                      return redirect('dashboard/recycle/income/category/');
+                                }else{
+                                    Session::flash('Error','Opps! Operation failed');
+                                    return redirect('dashboard/recycle/income/category/');
+                                }
                                     }
                                     public function delete (){
                                         // return view('admin.dashboard.home');

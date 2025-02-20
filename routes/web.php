@@ -8,6 +8,8 @@ use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\Expensecaregorycontroller;
 use App\Http\Controllers\IncomeController;
 use App\Http\Controllers\Incomecaregorycontroller;
+use App\Http\Controllers\RecycleController;
+use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,6 +85,13 @@ Route::post('/dashboard/Expense/caregory/update', [Expensecaregorycontroller::cl
 Route::post('/dashboard/Expense/caregory/softdelete', [Expensecaregorycontroller::class, 'softdelete']);
 Route::post('/dashboard/Expense/caregory/restore', [Expensecaregorycontroller::class, 'restore']);
 Route::post('/dashboard/Expense/caregory/delete', [Expensecaregorycontroller::class, 'delete']);
+
+Route::get('/dashboard/report', [ReportController::class, 'index']);
+
+Route::get('/dashboard/recycle', [RecycleController::class, 'index']);
+Route::get('/dashboard/recycle/user', [RecycleController::class, 'user']);
+Route::get('/dashboard/recycle/income', [RecycleController::class, 'income']);
+Route::get('/dashboard/recycle/income/category', [RecycleController::class, 'income_category']);
 
 
 require __DIR__.'/auth.php';
