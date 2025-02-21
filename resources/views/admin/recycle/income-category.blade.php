@@ -103,7 +103,7 @@ $all=App\Models\IncomeCategory::where('incate_status',0)->orderBy('incate_id','D
 
                     <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <form method="post" action="{{url('dashboard/Income/caregory/softdelete')}}">
+  <form method="post" action="{{url('dashboard/Income/caregory/delete')}}">
     @csrf
     <div class="modal-content">
       <div class="modal-header">

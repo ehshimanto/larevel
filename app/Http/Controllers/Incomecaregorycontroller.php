@@ -130,6 +130,14 @@ class Incomecaregorycontroller extends Controller
                                 }
                                     }
                                     public function delete (){
-                                        // return view('admin.dashboard.home');
+                                        $id=$_POST['modal_id'];
+                                        $delete=IncomeCategory::where('incate_status',0)->where('incate_id',$id)->forceDelete();
+                                        if($delete){
+                                            Session::flash('success','Succesfully Restore IncomeCayegory information');
+                                              return redirect('dashboard/recycle/income/category/');
+                                        }else{
+                                            Session::flash('Error','Opps! Operation failed');
+                                            return redirect('dashboard/recycle/income/category/');
+                                        }
                                         }
 }
