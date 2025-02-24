@@ -34,7 +34,7 @@ $all=App\Models\IncomeCategory::where('incate_status',0)->orderBy('incate_id','D
                       </div>
                       <div class="col-md-2"></div>
                     </div>
-                                <table class="table table-bordered table-striped table-hover custom_table">
+                                <table id="myTable" class="table table-bordered table-striped table-hover custom_table">
                                   <thead class="table-dark">
                                     <tr>
                                       <th>Name</th>

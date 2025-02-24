@@ -1,3 +1,5 @@
+// Masses Code
+
 // setTimeout(function(){
 //     $('alert_success').slideUp(1000);
 // },5000);
@@ -16,6 +18,7 @@ setTimeout(function(){
 
 
 
+// Modal Code
 
 // $(document).ready(function(){
 //  $(document).on("click", '#delete',function(){
@@ -40,3 +43,16 @@ $(document).ready(function(){
         $('.modal-body #modal_id').val(deleteID); // or .text(deleteID) if it's not an input field
     });
 });
+
+// Data Table 
+$(document).ready( function () {
+    $('#myTable').DataTable();
+    $("#alltableinfo").DataTable({
+        "paging":true,
+        "lengthChange":true,
+        "searching":true,
+        "ordering":false,
+        "info":true,
+        "autowidth":false,
+    });
+} );

@@ -6,10 +6,10 @@
                               <div class="card-header">
                                 <div class="row">
                                     <div class="col-md-8 card_title_part">
-                                        <i class="fab fa-gg-circle"></i>All Income Category Information
+                                        <i class="fab fa-gg-circle"></i>All Income Information
                                     </div>  
                                     <div class="col-md-4 card_button_part">
-                                        <a href="{{url('dashboard/Income/caregory/add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add Category</a>
+                                        <a href="{{url('dashboard/Income/add')}}" class="btn btn-sm btn-dark"><i class="fas fa-plus-circle"></i>Add Income</a>
                                     </div>  
                                 </div>
                               </div>
@@ -33,18 +33,22 @@
                                 <table id="alltableinfo" class="table table-bordered table-striped table-hover custom_table">
                                   <thead class="table-dark">
                                     <tr>
-                                      <th>Name</th>
-                                      <th>Remark</th>
+                                      <th>Title</th>
+                                      <th>category</th>
+                                      <th>Amount</th>
+                                      <th>Date</th>
                                       <th>Creator</th>
                                       
                                       <th>Manage</th>
                                     </tr>
-                                  </thead>
+                              </thead>
                                   <tbody>
                                     @foreach($allData as $data)
                                     <tr>
+                                      <td>{{$data->income_title}}</td>
                                       <td>{{$data->incate_name}}</td>
-                                      <td>{{$data->incate_remark}}</td>
+                                      <td>{{$data->income_amount}}</td>
+                                      <td>{{ $data->income_date }}</td>
                                       <td>{{ $data->creator_name }}</td>
 
 
@@ -55,9 +59,9 @@
                                           <div class="btn-group btn_group_manage" role="group">
                                             <button type="button" class="btn btn-sm btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">Manage</button>
                                             <ul class="dropdown-menu">
-                                              <li><a class="dropdown-item" href="{{url('dashboard/Income/caregory/view/'.$data->incate_slug)}}">View</a></li>
-                                              <li><a class="dropdown-item" href="{{url('dashboard/Income/caregory/edit/'.$data->incate_slug)}}">Edit</a></li>
-                                              <li><a class="dropdown-item" href="#" id="softDelete" data-bs-toggle="modal" data-bs-target="#softDeleteModal" data-id="{{$data->incate_id}}">Delete</a></li>
+                                              <li><a class="dropdown-item" href="{{url('dashboard/Income/view/'.$data->income_slug)}}">View</a></li>
+                                              <li><a class="dropdown-item" href="{{url('dashboard/Income/edit/'.$data->income_slug)}}">Edit</a></li>
+                                              <li><a class="dropdown-item" href="#" id="softDelete" data-bs-toggle="modal" data-bs-target="#softDeleteModal" data-id="{{$data->income_id}}">Delete</a></li>
                                             </ul>
                                           </div>
                                       </td>
@@ -80,7 +84,7 @@
                     <!-- Delete Modal -->
 <div class="modal fade" id="softDeleteModal" tabindex="-1" aria-labelledby="softDeleteModalLabel" aria-hidden="true">
   <div class="modal-dialog">
-  <form method="post" action="{{url('dashboard/Income/caregory/softdelete')}}">
+  <form method="post" action="{{url('dashboard/Income/softdelete')}}">
     @csrf
     <div class="modal-content">
       <div class="modal-header">
